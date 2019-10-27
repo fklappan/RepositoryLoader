@@ -1,0 +1,51 @@
+apply plugin: 'com.android.library'
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-android-extensions"
+apply plugin: "kotlin-kapt"
+
+
+android {
+    def globalConfig = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfig["androidCompileSdkVersion"]
+
+
+    defaultConfig {
+        minSdkVersion globalConfig["androidMinSdkVersion"]
+        targetSdkVersion globalConfig["androidTargetSdkVersion"]
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+
+    implementation "androidx.room:room-runtime:2.2.1"
+    kapt "androidx.room:room-compiler:2.2.1"
+    implementation "androidx.room:room-rxjava2:2.2.1"
+    testImplementation "androidx.room:room-testing:2.2.1"
+    implementation project(path: ':domain')
+
+    implementation "com.squareup.retrofit2:retrofit:2.6.2"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.6.2"
+    implementation "com.squareup.retrofit2:converter-gson:2.6.2"
+}

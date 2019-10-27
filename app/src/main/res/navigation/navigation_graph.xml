@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:startDestination="@id/overviewFragment">
+
+    <fragment android:id="@+id/overviewFragment" android:name="de.fklappan.app.repositoryloader.ui.overviewrepository.OverviewRepositoryFragment"
+              android:label="@string/caption_repository_overview">
+        <action android:id="@+id/action_overviewFragment_to_detailviewFragment"
+                app:destination="@id/detailviewRepositoryFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/detailviewRepositoryFragment"
+              android:name="de.fklappan.app.repositoryloader.ui.detailviewrepository.DetailviewRepositoryFragment"
+              android:label="@string/caption_repository_details">
+    </fragment >
+
+</navigation>

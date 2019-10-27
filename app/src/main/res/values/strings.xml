@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Repository loader</string>
+    <string name="caption_repository_overview">Repository overview</string>
+    <string name="caption_repository_details">Repository details</string>
+    <string name="stagazersCount">Count of stars on GitHub</string>
+    <string name="bookmark">Bookmark</string>
+</resources>
